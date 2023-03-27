@@ -1,0 +1,34 @@
+{% extends 'relogioponto/base.html' %}
+
+{% block content %}
+  <div class="app-relogioponto module">
+    <div class="moduletable">
+      <h1>Lista de Setores</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Funcionário</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for setor in setor %}
+            <tr>
+              <td>{{ setor.nome }}</td>
+              <td>{{ setor.funcionario }}</td>
+              <td>
+                <a href="{% url 'edita_setor' setor.pk %}">Editar</a>
+                <a href="{% url 'deleta_setor' setor.pk %}">Deletar</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="button-container">
+        <a href="{% url 'novo_setor' %}" class="button">Novo setor</a>
+        <a href="{% url 'home' %}" class="button">Voltar para Home</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

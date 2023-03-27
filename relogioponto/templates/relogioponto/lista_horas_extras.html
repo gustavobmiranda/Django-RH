@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Horas Extras</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Funcionário</th>
+        <th>Início</th>
+        <th>Fim</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for hora_extra in horas_extras %}
+        <tr>
+          <td>{{ hora_extra.funcionario.nome }}</td>
+          <td>{{ hora_extra.inicio }}</td>
+          <td>{{ hora_extra.fim }}</td>
+          <td><a href="{% url 'edita_hora_extra' hora_extra.pk %}">Editar</a></td>
+          <td><a href="{% url 'deleta_hora_extra' hora_extra.pk %}">Deletar</a></td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">Nenhuma hora extra encontrada.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'nova_hora_extra' %}" class="button">Nova hora extra</a>
+  <a href="{% url 'home' %}" class="button">Voltar para Home</a>
+{% endblock %}

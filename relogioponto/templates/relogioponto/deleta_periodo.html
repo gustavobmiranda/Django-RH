@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Deleta Período</h2>
+  <p>Tem certeza que deseja deletar o seguinte período?</p>
+  <p>{{ periodo }}</p>
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit">Sim</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Deletar Férias</h2>
+  <form method="post">
+    {% csrf_token %}
+    <p>Tem certeza que deseja deletar as férias de {{ ferias.funcionario }}?</p>
+    <button type="submit" class="btn btn-danger">Deletar</button>
+    <a href="{% url 'lista_ferias' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+{% endblock %}

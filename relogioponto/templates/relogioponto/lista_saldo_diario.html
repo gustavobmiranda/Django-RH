@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Lista de Saldos Diários</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Funcionário</th>
+        <th>Saldo</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for saldo in saldo_diario %}
+        <tr>
+          <td>{{ saldo.funcionario.nome }}</td>
+          <td>{{ saldo.saldo }}</td>
+          <td>
+            <a href="{% url 'edita_saldo_diario' saldo.pk %}">Editar</a>
+            <a href="{% url 'deleta_saldo_diario' saldo.pk %}">Deletar</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="3">Não há saldos diários registrados.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'novo_saldo_diario' %}" class="button">Adicionar novo saldo diário</a>
+  <a href="{% url 'home' %}" class="button">Voltar para Home</a>
+{% endblock %}

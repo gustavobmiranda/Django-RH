@@ -1,0 +1,20 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+  <h1>Bem-vindo ao sistema de ponto</h1>
+  <p>Escolha uma opção abaixo para começar:</p>
+  <ul>
+    <li><a href="{% url 'lista_funcionarios' %}">Listar funcionários</a></li>
+    <li><a href="{% url 'lista_setor' %}">Listar setores</a></li>
+    <li><a href="{% url 'lista_periodo' %}">Listar períodos</a></li>
+    <li><a href="{% url 'lista_registro_ponto' %}">Listar registros de ponto</a></li>
+    <li><a href="{% url 'lista_ferias' %}">Listar férias</a></li>
+    <li><a href="{% url 'lista_saldo_diario' %}">Listar saldos diários</a></li>
+    <li><a href="{% url 'lista_horas_extras' %}">Listar horas extras</a></li>
+  </ul>
+  
+  <form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Logout">
+  </form>
+{% endblock %}

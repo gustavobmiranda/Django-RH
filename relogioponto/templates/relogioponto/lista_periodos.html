@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="periodos-lista">
+    <h1>Lista de períodos</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Funcionário</th>
+          <th>Data de início</th>
+          <th>Data de fim</th>
+          <th>Horas extras</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for periodo in periodos %}
+          <tr>
+            <td>{{ periodo.funcionario }}</td>
+            <td>{{ periodo.data_inicio }}</td>
+            <td>{{ periodo.data_fim }}</td>
+            <td>{{ periodo.horas_extras }}</td>
+            <td>
+              <div class="acoes-periodo">
+                <a href="{% url 'edita_periodo' periodo.pk %}">
+                  <div class="botao-editar">
+                    Editar
+                  </div>
+                </a>
+                <a href="{% url 'deleta_periodo' periodo.pk %}">
+                  <div class="botao-deletar">
+                    Deletar
+                  </div>
+                </a>
+              </div>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="5">Nenhum período cadastrado.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{% url 'novo_periodo' %}" class="button">Adicionar período</a>
+    <a href="{% url 'home' %}" class="button">Voltar para Home</a>
+  </div>
+{% endblock %}

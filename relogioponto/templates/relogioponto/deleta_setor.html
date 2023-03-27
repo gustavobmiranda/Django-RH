@@ -1,0 +1,11 @@
+{% extends 'relogioponto/base.html' %}
+
+{% block content %}
+  <h1>Deletar Setor</h1>
+  <p>Você tem certeza que deseja deletar o setor "{{ setor.nome }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Deletar</button>
+  </form>
+  <a href="{% url 'lista_setor' %}">Voltar para lista de setores</a>
+{% endblock %}

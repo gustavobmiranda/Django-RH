@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Deletar Hora Extra</h1>
+  <p>Tem certeza que deseja deletar a hora extra?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sim</button>
+    <a href="{% url 'lista_horas_extras' %}">Não</a>
+  </form>
+{% endblock %}

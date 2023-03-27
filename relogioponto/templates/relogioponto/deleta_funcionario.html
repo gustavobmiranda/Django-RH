@@ -1,0 +1,11 @@
+{% extends 'relogioponto/base.html' %}
+
+{% block content %}
+  <h1>Deleta funcionário</h1>
+  <p>Você tem certeza que deseja deletar o funcionário "{{ funcionario.nome }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sim</button>
+    <a href="{% url 'lista_funcionarios' %}">Não</a>
+  </form>
+{% endblock %}

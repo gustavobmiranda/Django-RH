@@ -1,0 +1,11 @@
+{% extends 'relogioponto/base.html' %}
+
+{% block content %}
+  <h1>Deleta Registro de Ponto</h1>
+  <p>Tem certeza que deseja deletar o registro de ponto de {{ registro_ponto.funcionario.nome }} em {{ registro_ponto.data }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sim</button>
+    <a href="{% url 'lista_registro_ponto' %}">Não</a>
+  </form>
+{% endblock %}
