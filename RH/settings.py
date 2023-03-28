@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'RH.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_rh',
+        'NAME': 'django_rh_base',
         'USER': 'root',
         'PASSWORD': '12321',
         'HOST': '127.0.0.1',
