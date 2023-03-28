@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from django.shortcuts import redirect
 from relogioponto.models import Funcionarios, Ferias, RegistroPonto, Setor, SaldoDiario, HorasExtras, Periodo
 from relogioponto.forms import FuncionariosForm, FeriasForm, RegistroPontoForm, SetorForm, SaldoDiarioForm, HorasExtrasForm, PeriodoForm
 
