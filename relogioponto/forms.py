@@ -4,7 +4,7 @@ from .models import Funcionarios, Ferias, RegistroPonto, Setor, SaldoDiario, Hor
 class FuncionariosForm(forms.ModelForm):
     class Meta:
         model = Funcionarios
-        fields = ['nome', 'cpf'] # adicionar campos
+        fields = ['nome', 'cpf', 'cargo', 'email'] # adicionar campos
 
 class FeriasForm(forms.ModelForm):
     class Meta:
