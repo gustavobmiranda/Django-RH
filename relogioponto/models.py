@@ -1,8 +1,11 @@
 from django.db import models
+from django.core.validators import RegexValidator
 
 class Funcionarios(models.Model):
     nome = models.CharField(max_length=200)
-    cpf = models.CharField(max_length=11)
+    cpf = models.CharField(max_length=11, unique=True, validators=[RegexValidator(r'^\d{11}$')]) # Campo CPF com validação de formato
+    email = models.EmailField(max_length=254)
+    cargo = models.CharField(max_length=120)
     # Outros campos aqui
 
     def __str__(self):
